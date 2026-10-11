@@ -40,7 +40,7 @@ npm ci --no-audit --no-fund
 
 部署目标是 `https://yasakomsaki-hash.github.io/TKG-agent/`。这个地址只有 GitHub Pages 成功发布后才可使用。
 
-`.github/workflows/pages.yml` 会在 `main` 更新时构建和部署网站。首次需要仓库 **Settings → Pages → Build and deployment → Source → GitHub Actions**。如果 Actions 未启用，先启用它。部署进度可在仓库的 Actions 中查看。
+`.github/workflows/pages.yml` 会在 `main` 更新时构建和部署网站。首次需要仓库 **Settings → Pages → Build and deployment → Source → GitHub Actions**。如果 Actions 未启用，先启用它。随后进入 **Actions → Deploy work map to GitHub Pages → Run workflow → main** 运行首次部署，或重新运行已失败的部署。部署进度可在仓库的 Actions 中查看。
 
 仓库必须符合 GitHub Pages 的账户方案要求：公开仓库可以使用 GitHub Free；私有仓库需要支持 Pages 的方案。本项目不会自动修改仓库可见性。
 

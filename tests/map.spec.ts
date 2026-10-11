@@ -65,22 +65,24 @@ test('imports are validated and merged without losing existing locations', async
   await expect(page.locator('[data-highlighted=aqc]')).toHaveCount(1);
 });
 
+test.describe('mobile browser', () => {
+test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
 test('mobile layout fits the screen and supports touch editing', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('./');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
-  await page.getByRole('button', { name: '编辑地图' }).click();
-  await page.getByRole('button', { name: '添加设施' }).click();
-  await page.locator('.site-map').click({ position: { x: 170, y: 210 } });
+  await page.getByRole('button', { name: '编辑地图' }).tap();
+  await page.getByRole('button', { name: '添加设施' }).tap();
+  await page.locator('.site-map').tap({ position: { x: 170, y: 210 } });
   const dialog = page.getByRole('dialog');
   await dialog.getByLabel('设施名称').fill('SIS 储物柜');
   await dialog.getByLabel('所属场馆').selectOption('sis');
-  await dialog.getByRole('button', { name: '保存设施' }).click();
+  await dialog.getByRole('button', { name: '保存设施' }).tap();
   await expect(page.locator('.facility-marker')).toHaveCount(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
-  await page.getByRole('button', { name: '放大地图' }).click();
-  await page.getByRole('button', { name: '重置地图视角' }).click();
+  await page.getByRole('button', { name: '放大地图' }).tap();
+  await page.getByRole('button', { name: '重置地图视角' }).tap();
   await expect(page.locator('.site-map')).toHaveAttribute('viewBox', '0 0 1200 900');
+});
 });
 
 test('unconfirmed facility positions stay empty and no runtime errors occur', async ({ page }) => {

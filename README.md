@@ -2,6 +2,10 @@
 
 适用于电脑和手机的响应式网站。基于提供的 The Kallang 场地图，重绘为 SVG 工作定位示意图；不是按比例的路线导航。
 
+![电脑端：选中 AQC 时，其余地图变为黑白](docs/desktop.png)
+
+[查看手机端界面](docs/mobile.png)
+
 ## 已实现
 
 - 场馆搜索与简称：OCBC Arena、AQC、NST、KTH、SIS，以及 Kallang Wave Mall 等场馆。

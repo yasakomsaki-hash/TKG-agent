@@ -42,13 +42,13 @@ npm ci --no-audit --no-fund
 
 ## GitHub Pages
 
-部署目标是 `https://yasakomsaki-hash.github.io/TKG-agent/`。这个地址只有 GitHub Pages 成功发布后才可使用。
+网站地址：[The Kallang 工作地图](https://yasakomsaki-hash.github.io/TKG-agent/)。已验证公网返回 HTTP 200，并通过全部 5 项浏览器功能测试。
 
 `.github/workflows/pages.yml` 会在 `main` 更新时构建和部署网站。首次需要仓库 **Settings → Pages → Build and deployment → Source → GitHub Actions**。如果 Actions 未启用，先启用它。随后进入 **Actions → Deploy work map to GitHub Pages → Run workflow → main** 运行首次部署，或重新运行已失败的部署。部署进度可在仓库的 Actions 中查看。
 
 仓库必须符合 GitHub Pages 的账户方案要求：公开仓库可以使用 GitHub Free；私有仓库需要支持 Pages 的方案。本项目不会自动修改仓库可见性。
 
-当前仓库为私有，GitHub API 返回 `has_pages: false`。本地与 GitHub Actions 的安装、构建、产物上传均通过；Pages 部署失败。云环境的 GitHub 集成在读取或创建 Pages 站点时返回 `Resource not accessible by integration`，因此首次启用需要仓库管理员在 GitHub 设置操作。尚未确认公网发布成功。
+仓库现已公开，GitHub Pages 已启用，使用 GitHub Actions 部署。此前首次启用受集成权限限制；当前公网网站已可使用。
 
 Vite 使用相对资源路径，图标和设施 JSON 在 `/TKG-agent/` 子路径下也可加载。没有后端、API 密钥或外部字体依赖。
 

@@ -1,4 +1,10 @@
 import { expect, test } from '@playwright/test';
+import { chooseImageFixture } from './image-fixture';
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('./');
+  await chooseImageFixture(page);
+});
 
 test('venue search and selection isolate the selected region', async ({ page }) => {
   await page.goto('./');
